@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gas Stations</h1>
+<div class="row">
+
+    <% @gas_stations.each do |gas_station| %>
+   <div class="col-sm-6 col-md-4">
+     <div class="thumbnail">
+       <%= image_tag gas_station.image, class: 'image-responsive center-block', style:'max-height:300px;'%>
+       <div class="caption">
+         <h3><%= gas_station.name %></h3>
+         <p>Direcciòn<%= gas_station.address %></p>
+         <p>ID:<%= gas_station.id_station_integer %></p>
+         <p><%= link_to 'Detalles', gas_station, class: 'btn btn-primary' %>
+         <%= link_to 'Edit', edit_gas_station_path(gas_station), class:'btn btn-warning' %>
+         <%= link_to 'Eliminar', gas_station, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
+       </div>
+     </div>
+   </div>
+       <% end %>
+   </div>
+
+<br>
+
+<%= link_to 'New Gas Station', new_gas_station_path %>
